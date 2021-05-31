@@ -3,7 +3,7 @@ import { Image, View, Text, TextInput, TouchableOpacity } from "react-native"
 import { Styles } from "./styles"
 import { Formik } from "formik"
 import * as Yup from 'yup'
-import { useNavigation } from "@react-navigation/native"
+import { ParamListBase, useNavigation } from "@react-navigation/native"
 
 interface LoginFormTypes {
   email: string,
@@ -11,7 +11,7 @@ interface LoginFormTypes {
 }
 
 export const LoginScreen: React.FC<{}> = (props) => {
-  const nav = useNavigation()
+  const navigation = useNavigation()
   const initialValues: LoginFormTypes = { email: '', password: '' }
 
   const LoginValidationSchema = Yup.object().shape({
@@ -21,7 +21,7 @@ export const LoginScreen: React.FC<{}> = (props) => {
 
   const onSubmit = (values: object) => {
     console.info(values)
-    nav.navigate('books')
+    navigation.navigate('books')
   }
 
   return (
@@ -51,18 +51,17 @@ export const LoginScreen: React.FC<{}> = (props) => {
             />
             {errors.password && <Text style={Styles.errors}>{errors.password}</Text>}
 
-
             <TouchableOpacity 
               style={Styles.submitButton} 
               activeOpacity={0.90} 
-              onPress={handleSubmit}
+              onPress={() => handleSubmit()}
             >
               <Text style={Styles.textSubmitButton}>Entrar</Text>  
             </TouchableOpacity> 
 
             <View style={Styles.linkToScreensContainer}>
               <Text style={Styles.textLinkToScreen}>Esqueceu a senha?</Text>
-              <Text style={Styles.textLinkToScreen}>Cadastrar</Text>
+              <Text onPress={() => navigation.navigate('signup') } style={Styles.textLinkToScreen}>Cadastrar</Text>
             </View>
           </View>
         )}
