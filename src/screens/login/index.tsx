@@ -1,5 +1,6 @@
 import React from "react"
 import { Image, View, Text, TextInput, TouchableOpacity } from "react-native"
+import { GlobalStyles } from "../../styles/index"
 import { Styles } from "./styles"
 import { Formik } from "formik"
 import * as Yup from 'yup'
@@ -31,37 +32,37 @@ export const LoginScreen: React.FC<{}> = (props) => {
         onSubmit={onSubmit}
       >
         {({ values, touched, handleChange, handleSubmit, errors }) => (
-          <View style={Styles.container}>
+          <View style={GlobalStyles.container}>
             <Image source={require('../../../assets/logo.png')} style={Styles.logo}/>
             <TextInput
               value={values.email}
-              style={Styles.fields}
+              style={GlobalStyles.fields}
               placeholder="E-mail"
               keyboardType="email-address"
               onChangeText={handleChange('email')}
             />
 
-            {errors.email && <Text style={Styles.errors}>{errors.email}</Text>}
-            <TextInput 
-              value={values.password} 
-              style={Styles.fields} 
-              secureTextEntry 
-              placeholder="Senha" 
+            {errors.email && <Text style={GlobalStyles.errors}>{errors.email}</Text>}
+            <TextInput
+              value={values.password}
+              style={GlobalStyles.fields}
+              secureTextEntry
+              placeholder="Senha"
               onChangeText={handleChange('password')}
             />
-            {errors.password && <Text style={Styles.errors}>{errors.password}</Text>}
+            {errors.password && <Text style={GlobalStyles.errors}>{errors.password}</Text>}
 
-            <TouchableOpacity 
-              style={Styles.submitButton} 
-              activeOpacity={0.90} 
+            <TouchableOpacity
+              style={GlobalStyles.submitButton}
+              activeOpacity={0.90}
               onPress={() => handleSubmit()}
             >
-              <Text style={Styles.textSubmitButton}>Entrar</Text>  
-            </TouchableOpacity> 
+              <Text style={GlobalStyles.textSubmitButton}>Entrar</Text>
+            </TouchableOpacity>
 
             <View style={Styles.linkToScreensContainer}>
-              <Text style={Styles.textLinkToScreen}>Esqueceu a senha?</Text>
-              <Text onPress={() => navigation.navigate('signup') } style={Styles.textLinkToScreen}>Cadastrar</Text>
+              <Text style={GlobalStyles.textLinkToScreen}>Esqueceu a senha?</Text>
+              <Text onPress={() => navigation.navigate('signup') } style={GlobalStyles.textLinkToScreen}>Cadastrar</Text>
             </View>
           </View>
         )}
