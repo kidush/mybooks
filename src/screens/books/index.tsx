@@ -1,8 +1,11 @@
 import React from "react";
-import { Text } from "react-native";
+import { View, Text } from "react-native";
+import { Book } from "./components/book";
 
 export const BooksScreen : React.FC<{}> = (props) => {
-    return (
-        <Text style={{fontSize: 20}}>Listagem de livros</Text>
-    )
+  return (
+    <View>
+      <Book/>
+    </View>
+  )
 }

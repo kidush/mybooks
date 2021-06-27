@@ -13,7 +13,7 @@ interface LoginFormTypes {
 
 export const LoginScreen: React.FC<{}> = (props) => {
   const navigation = useNavigation()
-  const initialValues: LoginFormTypes = { email: '', password: '' }
+  const initialValues: LoginFormTypes = { email: 'thiago@teste.com', password: '123123123' }
 
   const LoginValidationSchema = Yup.object().shape({
     email: Yup.string().email('E-mail inválido').required('Informe um E-mail válido'),
