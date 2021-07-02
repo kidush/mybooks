@@ -5,7 +5,6 @@ import { LoginScreen } from '../screens/login'
 import { BooksScreen } from '../screens/books'
 import { SignupScreen } from '../screens/signUp'
 
-
 const Stack = createStackNavigator()
 
 export const MainNavigation = () => {

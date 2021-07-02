@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { Book } from "./components/book";
 
 export const BooksScreen : React.FC<{}> = (props) => {
   return (
-    <View>
+    <ScrollView>
       <Book/>
-    </View>
+      <Book/>
+      <Book/>
+      <Book/>
+      <Book/>
+    </ScrollView>
   )
 }

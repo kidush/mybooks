@@ -1,12 +1,16 @@
 import { StyleSheet } from "react-native";
 
 export const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    height: 150
+  card: {
+    flexDirection: 'row'
   },
+
   cover: {
-    width: 250,
-    height: 250
+    width: 120,
+    height: 200
+  },
+
+  information: {
+    marginLeft: 10
   }
 });
